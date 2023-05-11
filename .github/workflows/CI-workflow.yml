@@ -1,5 +1,4 @@
 name: CI Workflow
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
   build:
@@ -15,4 +14,4 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots package
+        run: ./mvnw clean install
