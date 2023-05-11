@@ -1,17 +1,22 @@
-name: CI Workflow
-on: [push]
+name: Maven CI/CD
+
+on:
+  push:
+    branches: [ master ]
+    pull_request:
+      branches: [ master ]
+
 jobs:
-  build:
+  build_and_test:
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-
+      - uses: actions/checkout@v2
       - name: Set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v1
         with:
-          java-version: '17'
-          distribution: 'temurin'
-      - name: Run Tests
-        run: mvn -B test
+          java-version: 17
+
+      - name: Build project with Maven
+        run: mvn -B package --file pom.xml
