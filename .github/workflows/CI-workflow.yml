@@ -1,13 +1,11 @@
-name: Java CI with Maven
+name: Java CI
 
-on:
-  pull_request:
-    branches: [ "main" ]
+on: [push]
 
 jobs:
   build:
-    name: Build
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 17
@@ -15,6 +13,5 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: maven
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn --batch-mode --update-snapshots package
