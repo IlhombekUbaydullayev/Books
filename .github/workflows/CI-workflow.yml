@@ -1,6 +1,6 @@
 name: Java CI
 
-on: ['master']
+on: ["master"]
 
 jobs:
   build:
