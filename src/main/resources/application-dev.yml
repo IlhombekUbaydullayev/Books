@@ -5,6 +5,7 @@ spring:
     url: jdbc:postgresql:///postgres
     password: book-password
     username: postgres
+    driver-class-name: org.postgresql.Driver
     hikari:
       data-source-properties:
         socketFactory: com.google.cloud.sql.postgres.SocketFactory
