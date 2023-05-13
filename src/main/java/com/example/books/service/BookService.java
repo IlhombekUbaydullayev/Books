@@ -9,6 +9,7 @@ import com.example.books.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService extends AbstractService<BookRepository> implements GenericService<
@@ -47,7 +48,12 @@ public class BookService extends AbstractService<BookRepository> implements Gene
 
     @Override
     public Long delete(Long id) {
-        return null;
+        Optional<Books> byId = repository.findById(id);
+        if (byId.isPresent()) {
+            repository.delete(byId.get());
+            return id;
+        }
+        return 0L;
     }
 
     @Override

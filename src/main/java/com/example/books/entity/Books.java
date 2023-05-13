@@ -1,11 +1,9 @@
 package com.example.books.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.*;
 
-import java.util.List;
 
 @Entity
 @Getter

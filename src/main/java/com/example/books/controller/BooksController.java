@@ -23,4 +23,10 @@ public class BooksController {
         BookResponse bookResponse = service.create(create);
         return new ResponseEntity<>(bookResponse,HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id) {
+        Long delete = service.delete(id);
+        return new ResponseEntity<>(delete,HttpStatus.OK);
+    }
 }
